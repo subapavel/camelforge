@@ -1,10 +1,7 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
@@ -15,9 +12,7 @@
       "!{projectRoot}/.eslintrc.json",
       "!{projectRoot}/eslint.config.mjs"
     ],
-    "sharedGlobals": [
-      "{workspaceRoot}/.github/workflows/ci.yml"
-    ]
+    "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
   "plugins": [
     {
@@ -56,50 +51,50 @@
       "options": {
         "targetName": "lint"
       }
+    },
+    {
+      "plugin": "@nx/vite/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "testTargetName": "test",
+        "serveTargetName": "serve",
+        "devTargetName": "dev",
+        "previewTargetName": "preview",
+        "serveStaticTargetName": "serve-static",
+        "typecheckTargetName": "typecheck",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "plugin": "@nx/playwright/plugin",
+      "options": {
+        "targetName": "e2e"
+      }
     }
   ],
   "defaultBase": "main",
   "targetDefaults": {
     "build": {
       "cache": true,
-      "dependsOn": [
-        "^build"
-      ],
-      "inputs": [
-        "production",
-        "^production",
-        "{projectRoot}/next.config.mjs"
-      ],
-      "outputs": [
-        "{projectRoot}/.next",
-        "{projectRoot}/out"
-      ]
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production", "{projectRoot}/next.config.mjs"],
+      "outputs": ["{projectRoot}/.next", "{projectRoot}/out"]
     },
     "dev": {
       "cache": false
     },
     "typecheck": {
       "cache": true,
-      "inputs": [
-        "default",
-        "^default"
-      ],
-      "outputs": [
-        "{projectRoot}/tsconfig.tsbuildinfo",
-        "{projectRoot}/**/*.d.ts"
-      ]
+      "inputs": ["default", "^default"],
+      "outputs": ["{projectRoot}/tsconfig.tsbuildinfo", "{projectRoot}/**/*.d.ts"]
     },
     "test": {
-      "dependsOn": [
-        "^build"
-      ]
+      "dependsOn": ["^build"]
     },
     "lint": {
       "cache": true,
-      "inputs": [
-        "default",
-        "{workspaceRoot}/eslint.config.mjs"
-      ]
+      "inputs": ["default", "{workspaceRoot}/eslint.config.mjs"]
     }
   },
   "parallel": 3,
@@ -115,7 +110,18 @@
     },
     "@nx/react": {
       "library": {
+        "style": "tailwind",
+        "linter": "eslint",
         "unitTestRunner": "jest"
+      },
+      "application": {
+        "babel": true,
+        "style": "tailwind",
+        "linter": "eslint",
+        "bundler": "vite"
+      },
+      "component": {
+        "style": "tailwind"
       }
     }
   }

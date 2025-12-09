@@ -11,7 +11,7 @@ export default function Home() {
         variant="outline" 
         onClick={() =>
         toast("CMS site for Camel Forge", {
-          description: "Where AI meets creativity",
+          description: "Build using Next.js and Payload cms",
         }) }>I will be</Button>
     </div>
   )

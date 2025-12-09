@@ -1,0 +1,10 @@
+{
+  "name": "@camelforge/frontend",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@shared/ui": "workspace:*",
+    "@shared/utils": "workspace:*",
+    "@shared/hooks": "workspace:*"
+  }
+}
