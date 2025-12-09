@@ -16,6 +16,19 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["@camelforge/source"]
+    "customConditions": ["@camelforge/source"],
+    "baseUrl":"./",
+    "paths": {
+      "@/*": ["./*"],
+
+      "@shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@shared/ui/*": ["libs/shared/ui/src/*"],
+
+      "@shared/utils": ["libs/shared/utils/src/index.ts"],
+      "@shared/utils/*": ["libs/shared/utils/src/*"],
+
+      "@shared/hooks": ["libs/shared/hooks/src/index.ts"],
+      "@shared/hooks/*": ["libs/shared/hooks/src/*"]
+    }
   }
 }

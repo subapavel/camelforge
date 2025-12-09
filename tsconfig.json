@@ -8,6 +8,15 @@
     },
     {
       "path": "./apps/cms"
+    },
+    {
+      "path": "./libs/shared/ui"
+    },
+    {
+      "path": "./libs/shared/utils"
+    },
+    {
+      "path": "./libs/shared/hooks"
     }
   ]
 }
