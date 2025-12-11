@@ -13,6 +13,7 @@
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
         <quarkus.platform.version>3.30.2</quarkus.platform.version>
+        <camel-k-crds.version>2.5.1</camel-k-crds.version>
         <skipITs>true</skipITs>
         <surefire-plugin.version>3.5.4</surefire-plugin.version>
     </properties>
@@ -32,17 +33,33 @@
     <dependencies>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
             <artifactId>quarkus-arc</artifactId>
         </dependency>
+
+        <!-- REST API -->
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-rest</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-rest-jackson</artifactId>
+        </dependency>
+
         <!-- Add Kubernetes Client -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-kubernetes-client</artifactId>
         </dependency>
+
+        <!-- Camel K CRDs -->
+        <dependency>
+            <groupId>org.apache.camel.k</groupId>
+            <artifactId>camel-k-crds</artifactId>
+            <version>${camel-k-crds.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit5</artifactId>

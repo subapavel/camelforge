@@ -29,7 +29,11 @@ public class KubernetesResource {
     public Response listNamespaces() {
         try {
             List<String> namespaces = kubernetesService.listNamespaces();
-            return Response.ok(Map.of("namespaces", namespaces)).build();
+            return Response.ok(Map.of("namespaces", namespaces))
+                    .header("Access-Control-Allow-Origin", "*")
+                    .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+                    .header("Access-Control-Allow-Headers", "Content-Type")
+                    .build();
         } catch (Exception e) {
             return Response.serverError()
                 .entity(Map.of("error", e.getMessage()))

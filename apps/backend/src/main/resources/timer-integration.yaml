@@ -1,0 +1,13 @@
+apiVersion: camel.apache.org/v1
+kind: Integration
+metadata:
+  name: test-timer
+  namespace: camel-k
+spec:
+  flows:
+  - from:
+      uri: "timer:tick?period=10000"
+      steps:
+      - setBody:
+          simple: "Ahoj Pavle - Čas: ${date:now:HH:mm:ss}"
+      - to: "log:camelforge?level=INFO"
