@@ -18,9 +18,7 @@
     {
       "plugin": "@nx/js/typescript",
       "options": {
-        "typecheck": {
-          "targetName": "typecheck"
-        },
+        "typecheck": {"targetName": "typecheck"},
         "build": {
           "targetName": "build",
           "configName": "tsconfig.lib.json",
@@ -40,18 +38,8 @@
         "watchDepsTargetName": "watch-deps"
       }
     },
-    {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      }
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
+    {"plugin": "@nx/jest/plugin", "options": {"targetName": "test"}},
+    {"plugin": "@nx/eslint/plugin", "options": {"targetName": "lint"}},
     {
       "plugin": "@nx/vite/plugin",
       "options": {
@@ -66,12 +54,7 @@
         "watchDepsTargetName": "watch-deps"
       }
     },
-    {
-      "plugin": "@nx/playwright/plugin",
-      "options": {
-        "targetName": "e2e"
-      }
-    }
+    {"plugin": "@nx/playwright/plugin", "options": {"targetName": "e2e"}}
   ],
   "defaultBase": "main",
   "targetDefaults": {
@@ -81,48 +64,26 @@
       "inputs": ["production", "^production", "{projectRoot}/next.config.mjs"],
       "outputs": ["{projectRoot}/.next", "{projectRoot}/out"]
     },
-    "dev": {
-      "cache": false
-    },
+    "dev": {"cache": false},
     "typecheck": {
       "cache": true,
       "inputs": ["default", "^default"],
       "outputs": ["{projectRoot}/tsconfig.tsbuildinfo", "{projectRoot}/**/*.d.ts"]
     },
-    "test": {
-      "dependsOn": ["^build"]
-    },
-    "lint": {
-      "cache": true,
-      "inputs": ["default", "{workspaceRoot}/eslint.config.mjs"]
-    }
+    "test": {"dependsOn": ["^build"]},
+    "lint": {"cache": true, "inputs": ["default", "{workspaceRoot}/eslint.config.mjs"]}
   },
   "parallel": 3,
   "cacheDirectory": "node_modules/.cache/nx",
   "generators": {
     "@nx/next": {
-      "application": {
-        "style": "tailwind",
-        "linter": "eslint",
-        "e2eTestRunner": "none",
-        "unitTestRunner": "jest"
-      }
+      "application": {"style": "tailwind", "linter": "eslint", "e2eTestRunner": "none", "unitTestRunner": "jest"}
     },
     "@nx/react": {
-      "library": {
-        "style": "tailwind",
-        "linter": "eslint",
-        "unitTestRunner": "jest"
-      },
-      "application": {
-        "babel": true,
-        "style": "tailwind",
-        "linter": "eslint",
-        "bundler": "vite"
-      },
-      "component": {
-        "style": "tailwind"
-      }
+      "library": {"style": "tailwind", "linter": "eslint", "unitTestRunner": "jest"},
+      "application": {"babel": true, "style": "tailwind", "linter": "eslint", "bundler": "vite"},
+      "component": {"style": "tailwind"}
     }
-  }
+  },
+  "nxCloudId": "693815ff5c8313171c8101ef"
 }
